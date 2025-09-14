@@ -1,4 +1,6 @@
-flask==3.0.3
-flask-socketio==5.3.6
-markdown==3.6
-bleach==6.1.0
+flask
+flask-socketio
+markdown
+bleach
+gevent
+gevent-websocket
