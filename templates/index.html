@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SJA JEJU Talk</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>💬 SJA 익명 채팅방 - SJA anonymous chat</h1>
+      </header>
+
+      <section class="auth">
+        <div class="badge">
+          <span id="myname">…</span>
+        </div>
+      </section>
+
+      <main id="chat">
+        <ul id="messages"></ul>
+        <div id="typing"></div>
+      </main>
+
+      <footer>
+        <input id="input" placeholder="메시지를 입력하세요…" autocomplete="off" />
+        <button id="send">Send</button>
+      </footer>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/static/client.js"></script>
+
+    <a href="https://forms.gle/zYYaKVxz8qxp6Jeo7"
+    target="_blank"
+    class="feedback-btn">Send Feedback</a>    
+  </body>
+</html>
