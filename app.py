@@ -9,8 +9,10 @@ import os
 from time import monotonic
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'change-me'
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "dev-key")
+
+# 🔁 gevent 모드로 실행 (Render 프로덕션 OK)
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="gevent")
 
 # Single room
 ROOM = "main"
@@ -118,4 +120,5 @@ def on_disconnect():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
+    # gevent가 설치되어 있으면 socketio.run()이 프로덕션용 gevent 서버로 실행됨 (Werkzeug 아님)
     socketio.run(app, host="0.0.0.0", port=port)
