@@ -10,7 +10,7 @@ from time import monotonic
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'change-me'
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
 
 # Single room
 ROOM = "main"
